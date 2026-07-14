@@ -1,13 +1,12 @@
 import {
-  Building,
-  ChartArea,
+  Building2,
+  ClipboardList,
   File,
   LayoutDashboard,
-  List,
-  PersonStanding,
+  MessageCircle,
   Presentation,
-  Send,
   Settings,
+  User,
 } from "lucide-react";
 import { Profiler } from "react";
 
@@ -20,12 +19,12 @@ export let employeeNavigation = [
   {
     path: "/home/myTask",
     title: "My Task",
-    Icon: <List />,
+    Icon: <ClipboardList />,
   },
   {
     path: "/home/chat",
     title: "Chats",
-    Icon: <ChartArea />,
+    Icon: <MessageCircle />,
   },
   {
     path: "/home/attendance",
@@ -53,22 +52,22 @@ export let adminNavigation = [
   {
     path: "/home/task",
     title: "Task",
-    Icon: <List />,
+    Icon: <ClipboardList />,
   },
   {
     path: "/home/chat",
     title: "Chats",
-    Icon: <ChartArea />,
+    Icon: <MessageCircle />,
   },
   {
     path: "/home/department",
     title: "Departments",
-    Icon: <Building />,
+    Icon: <Building2 />,
   },
   {
     path: "/home/employee",
     title: "Employee",
-    Icon: <PersonStanding />,
+    Icon: <User />,
   },
   {
     path: "/home/document",

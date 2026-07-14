@@ -11,7 +11,7 @@ const NavigationTab = ({ path, title, Icon }) => {
       to={path}
       end="/"
     >
-      <ChartArea size={23} />
+      {Icon}
       {title}
     </NavLink>
   );
