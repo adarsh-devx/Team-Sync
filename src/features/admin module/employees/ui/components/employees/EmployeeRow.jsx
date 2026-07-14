@@ -2,6 +2,8 @@ import React from "react";
 import { Shield, Briefcase, Calendar } from "lucide-react";
 import StatusBadge from "./StatusBadge";
 import EmployeeAction from "./EmployeeAction";
+import { updateEmploye } from "../../../api/employeeApis";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const getInitials = (name) => {
   if (!name) return "?";
@@ -38,7 +40,12 @@ export const formatJoinedDate = (dateStr) => {
   });
 };
 
-const EmployeeRow = ({ employee, onUpdate, onDelete, onStatusChange }) => {
+const EmployeeRow = ({
+  employee,
+  onUpdate,
+  onDelete,
+}) => {
+  const queryClient = useQueryClient();
   const { name, role, department, status, avatar, createdAt } = employee;
   const initials = getInitials(name);
   const bgGradient = getAvatarColor(name);
@@ -108,7 +115,16 @@ const EmployeeRow = ({ employee, onUpdate, onDelete, onStatusChange }) => {
           employee={employee}
           onUpdate={onUpdate}
           onDelete={onDelete}
-          onStatusChange={onStatusChange}
+          onStatusChange={async () => {
+            const currentStatus = employee.status?.trim().toLowerCase();
+            const nextStatus = currentStatus === "inactive" ? "active" : "inactive";
+            
+            const updated = await updateEmploye(employee?._id, { status: nextStatus });
+            if (updated) {
+              alert(`${name} status changed successfully to ${nextStatus.toUpperCase()}`);
+            }
+            queryClient.invalidateQueries({ queryKey: ["employees"] });
+          }}
         />
       </td>
     </tr>

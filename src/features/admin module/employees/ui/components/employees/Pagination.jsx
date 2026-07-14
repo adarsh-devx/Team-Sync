@@ -1,7 +1,12 @@
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const Pagination = ({ currentPage, totalPages, onPageChange, totalItems = 0 }) => {
+const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+  totalItems = 0,
+}) => {
   if (totalPages <= 1) return null;
 
   const pageNumbers = [];
@@ -38,14 +43,25 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems = 0 }) =
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-[var(--text-muted)]">
-            Showing Page <span className="font-semibold text-[var(--text-primary)]">{currentPage}</span> of{" "}
-            <span className="font-semibold text-[var(--text-primary)]">{totalPages}</span>{" "}
-            <span className="text-[var(--text-muted)]/60">({totalItems} total employees)</span>
+            Showing Page{" "}
+            <span className="font-semibold text-[var(--text-primary)]">
+              {currentPage}
+            </span>{" "}
+            of{" "}
+            <span className="font-semibold text-[var(--text-primary)]">
+              {totalPages}
+            </span>{" "}
+            <span className="text-[var(--text-muted)]/60">
+              ({totalItems} total employees)
+            </span>
           </p>
         </div>
 
         <div>
-          <nav className="isolate inline-flex -space-x-px rounded-xl shadow-sm gap-1" aria-label="Pagination">
+          <nav
+            className="isolate inline-flex -space-x-px rounded-xl shadow-sm gap-1"
+            aria-label="Pagination"
+          >
             {/* Previous Button */}
             <button
               onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
@@ -74,7 +90,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems = 0 }) =
 
             {/* Next Button */}
             <button
-              onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
+              onClick={() =>
+                onPageChange(Math.min(currentPage + 1, totalPages))
+              }
               disabled={currentPage === totalPages}
               className="relative inline-flex items-center rounded-xl p-2 text-[var(--text-muted)] border border-[var(--border-color)] bg-[var(--bg-main)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] disabled:opacity-50 disabled:pointer-events-none cursor-pointer transition-colors"
             >

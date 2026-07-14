@@ -3,10 +3,14 @@ import AddEmployeeHeader from "../components/addEmployee/AddEmployeeHeader";
 import PersonalInfoForm from "../components/addEmployee/PersonalInfoForm";
 import EmploymentDetailsForm from "../components/addEmployee/EmploymentDetailsForm";
 import FormActions from "../components/addEmployee/FormActions";
+import { createEmployee } from "../../api/employeeApis";
+import { useQueryClient } from "@tanstack/react-query";
 
 const AddEmployee = () => {
-  // Form values state matching backend model requirements
-  const [formData, setFormData] = useState({
+  const queryClient = useQueryClient();
+
+  // Initial state values matching backend requirements
+  const initialFormState = {
     name: "",
     email: "",
     bio: "",
@@ -15,7 +19,10 @@ const AddEmployee = () => {
     joiningDate: "",
     status: "active",
     avatar: "",
-  });
+    password: "12345678",
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +33,20 @@ const AddEmployee = () => {
     setFormData((prev) => ({ ...prev, avatar: base64Img }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting Profile Configuration:", formData);
-    alert("New employee configurations logged in console successfully!");
-    // You can connect your useMutation hooks here
+    try {
+      let res = await createEmployee(formData);
+      console.log("response ", res);
+      alert("employee created ");
+      
+      // Invalidate the cache query key so that React Query fetches the updated list
+      queryClient.invalidateQueries({ queryKey: ["employees"] });
+
+      setFormData(initialFormState);
+    } catch (error) {
+      console.log("error in api ", error);
+    }
   };
 
   return (
