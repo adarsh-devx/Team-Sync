@@ -1,4 +1,4 @@
-import React from "react";
+﻿
 import { useNavigate } from "react-router";
 import { ChevronRight } from "lucide-react";
 
@@ -11,7 +11,7 @@ const AddEmployeeHeader = () => {
       <nav className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] font-semibold mb-2">
         <span
           onClick={() => navigate("/home/employee")}
-          className="hover:text-purple-400 cursor-pointer transition-colors"
+          className="hover:text-[var(--accent)] cursor-pointer transition-colors"
         >
           Team
         </span>
@@ -31,3 +31,4 @@ const AddEmployeeHeader = () => {
 };
 
 export default AddEmployeeHeader;
+

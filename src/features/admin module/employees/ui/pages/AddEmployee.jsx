@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AddEmployeeHeader from "../components/addEmployee/AddEmployeeHeader";
 import PersonalInfoForm from "../components/addEmployee/PersonalInfoForm";
 import EmploymentDetailsForm from "../components/addEmployee/EmploymentDetailsForm";

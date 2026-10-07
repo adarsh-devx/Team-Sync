@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+﻿import { useState } from "react";
 import { MoreVertical, Edit2, Trash2, UserMinus } from "lucide-react";
 
-const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
-  // State to manage the open/close state of the action dropdown menu
+// `variant="plain"` grid card footer ke liye hai (border-less icon trigger),
+// default "outlined" variant table rows me use hota hai.
+const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange, variant = "outlined" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const triggerClass =
+    variant === "plain"
+      ? "cursor-pointer rounded-[var(--radius-sm)] p-1.5 text-[var(--text-muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+      : "cursor-pointer rounded-[var(--radius-sm)] border border-[var(--border-color)] p-2 text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]";
+
   return (
-    <div className="inline-block text-left relative">
+    <div className="relative inline-block text-left">
       {/* Trigger Button */}
       <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={isMenuOpen}
+        aria-label={`Actions for ${employee?.name ?? "employee"}`}
         onClick={(e) => {
-          e.stopPropagation(); // Prevents tr click navigation
+          e.stopPropagation(); // Card/table row ke click navigation ko rokta hai
           setIsMenuOpen(!isMenuOpen);
         }}
-        className="p-2 rounded-xl border border-[var(--border-color)] hover:border-purple-500/50 hover:bg-purple-500/10 text-[var(--text-muted)] hover:text-purple-400 transition-all duration-200 cursor-pointer"
+        className={triggerClass}
       >
         <MoreVertical size={16} />
       </button>
@@ -30,7 +40,7 @@ const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
           />
 
           {/* Action Dropdown Menu Box */}
-          <div className="absolute right-0 mt-1.5 w-36 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl py-1.5 z-20 animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="absolute right-0 mt-1.5 w-36 rounded-[var(--radius-sm)] bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-xl py-1.5 z-20 animate-in fade-in slide-in-from-top-2 duration-150">
             {/* 1. Update Profile Button */}
             <button
               onClick={(e) => {
@@ -38,7 +48,7 @@ const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
                 setIsMenuOpen(false);
                 if (onUpdate) onUpdate(employee);
               }}
-              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-main)] hover:text-purple-400 transition-colors text-left"
+              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-main)] hover:text-[var(--accent)] transition-colors text-left"
             >
               <Edit2 size={13} />
               <span>Update</span>
@@ -51,7 +61,7 @@ const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
                 setIsMenuOpen(false);
                 if (onStatusChange) onStatusChange(employee, "inactive");
               }}
-              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-main)] hover:text-amber-400 transition-colors text-left"
+              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-main)] hover:text-[var(--warning)] transition-colors text-left"
             >
               <UserMinus size={13} />
               <span>InActive</span>
@@ -67,7 +77,7 @@ const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
                 setIsMenuOpen(false);
                 if (onDelete) onDelete(employee);
               }}
-              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-red-500 hover:bg-[var(--bg-main)] hover:bg-red-500/10 transition-colors text-left"
+              className="flex items-center gap-2 w-full px-3 py-2 text-xs font-semibold text-[var(--danger)] hover:bg-[var(--danger)]/10 transition-colors text-left"
             >
               <Trash2 size={13} />
               <span>Delete</span>
@@ -80,3 +90,4 @@ const EmployeeAction = ({ employee, onUpdate, onDelete, onStatusChange }) => {
 };
 
 export default EmployeeAction;
+

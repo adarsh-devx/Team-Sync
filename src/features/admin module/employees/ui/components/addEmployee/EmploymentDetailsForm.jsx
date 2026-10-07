@@ -1,4 +1,4 @@
-import React from "react";
+﻿
 import { Briefcase } from "lucide-react";
 import FormSelect from "./FormSelect";
 import FormInput from "./FormInput";
@@ -20,10 +20,10 @@ const EmploymentDetailsForm = ({ formData, onInputChange }) => {
   ];
 
   return (
-    <div className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-6">
+    <div className="p-6 rounded-[var(--radius-lg)] bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-6">
       {/* Section Header */}
       <div className="flex items-center gap-2 pb-4 border-b border-[var(--border-color)]">
-        <Briefcase size={18} className="text-purple-400" />
+        <Briefcase size={18} className="text-[var(--accent)]" />
         <h2 className="text-lg font-bold text-[var(--text-primary)]">
           Employment Details
         </h2>
@@ -71,3 +71,4 @@ const EmploymentDetailsForm = ({ formData, onInputChange }) => {
 };
 
 export default EmploymentDetailsForm;
+

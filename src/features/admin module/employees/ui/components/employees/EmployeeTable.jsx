@@ -1,5 +1,4 @@
-import React from "react";
-import EmployeeRow from "./EmployeeRow";
+﻿import EmployeeRow from "./EmployeeRow";
 
 const EmployeeTable = ({
   employees = [],
@@ -9,19 +8,19 @@ const EmployeeTable = ({
   onStatusChange,
 }) => {
   return (
-    <div className="w-full overflow-x-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-sm">
-      <table className="w-full border-collapse text-left">
+    <div className="w-full overflow-x-auto rounded-[var(--radius-md)] border border-[var(--border-color)] bg-[var(--bg-surface)]">
+      <table className="w-full border-collapse text-left text-[13px]">
         <thead>
-          <tr className="border-b border-[var(--border-color)] bg-[var(--bg-main)]/50 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
-            <th className="p-4 pl-6">Employee</th>
-            <th className="p-4">Role</th>
-            <th className="p-4">Department</th>
-            <th className="p-4">Status</th>
-            <th className="p-4">Joined Date</th>
-            <th className="p-4 pr-6 text-right">Action</th>
+          <tr className="border-b border-[var(--border-color)] bg-[var(--bg-main)]/50 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--text-muted)]">
+            <th className="py-2.5 pl-6 pr-4 font-semibold">Employee</th>
+            <th className="px-4 py-2.5 font-semibold">Role</th>
+            <th className="px-4 py-2.5 font-semibold">Department</th>
+            <th className="px-4 py-2.5 font-semibold">Status</th>
+            <th className="px-4 py-2.5 font-semibold">Joined</th>
+            <th className="px-4 py-2.5 pr-6 text-right font-semibold">Action</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[var(--border-color)] text-sm">
+        <tbody className="divide-y divide-[var(--border-color)]">
           {employees.length === 0 ? (
             <tr>
               <td colSpan="6" className="p-8 text-center text-[var(--text-muted)]">
@@ -47,3 +46,4 @@ const EmployeeTable = ({
 };
 
 export default EmployeeTable;
+

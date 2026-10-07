@@ -1,6 +1,4 @@
-import React from "react";
-
-const Button = ({
+﻿const Button = ({
   children,
   onClick,
   variant = "primary",
@@ -11,14 +9,14 @@ const Button = ({
   ...props
 }) => {
   const baseStyle =
-    "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 active:scale-95 cursor-pointer disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center font-semibold rounded-[var(--radius-sm)] transition-all duration-200 active:scale-95 cursor-pointer disabled:opacity-50 disabled:pointer-events-none";
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-md shadow-purple-500/10 hover:shadow-lg hover:shadow-purple-500/20",
+      "bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white transition-colors",
     secondary:
       "bg-[var(--bg-card)] hover:bg-[var(--bg-hover)] text-[var(--text-primary)] border border-[var(--border-color)]",
-    danger: "bg-red-600 hover:bg-red-500 text-white shadow-md shadow-red-500/10",
+    danger: "bg-[var(--danger)] hover:bg-[var(--danger)]/90 text-white transition-colors",
     ghost: "text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)]",
   };
 
@@ -42,3 +40,4 @@ const Button = ({
 };
 
 export default Button;
+

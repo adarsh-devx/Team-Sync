@@ -1,4 +1,4 @@
-import React from "react";
+﻿
 import { User } from "lucide-react";
 import UploadPhoto from "./UploadPhoto";
 import FormInput from "./FormInput";
@@ -6,10 +6,10 @@ import FormTextarea from "./FormTextarea";
 
 const PersonalInfoForm = ({ formData, onInputChange, onAvatarChange }) => {
   return (
-    <div className="p-6 rounded-3xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-6">
+    <div className="p-6 rounded-[var(--radius-lg)] bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-6">
       {/* Section Header */}
       <div className="flex items-center gap-2 pb-4 border-b border-[var(--border-color)]">
-        <User size={18} className="text-purple-400" />
+        <User size={18} className="text-[var(--accent)]" />
         <h2 className="text-lg font-bold text-[var(--text-primary)]">
           Personal Information
         </h2>
@@ -56,3 +56,4 @@ const PersonalInfoForm = ({ formData, onInputChange, onAvatarChange }) => {
 };
 
 export default PersonalInfoForm;
+

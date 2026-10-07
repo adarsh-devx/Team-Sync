@@ -1,5 +1,4 @@
-import React from "react";
-import { Users, UserCheck, Shield, Layers } from "lucide-react";
+﻿import { Users, UserCheck, Shield, Layers } from "lucide-react";
 import StatCard from "../StatCard";
 
 const EmployeeStats = ({ employees = [] }) => {
@@ -15,28 +14,37 @@ const EmployeeStats = ({ employees = [] }) => {
         title="Total Employees"
         value={total}
         icon={Users}
-        colorClass="from-blue-500/10 to-indigo-500/10 border-blue-500/20 text-blue-400"
+        colorClass="bg-[var(--accent)]/10 text-[var(--accent)]"
+        trend="14%"
+        subtitle="from last month"
+        menu
       />
       <StatCard
         title="Active Members"
         value={active}
         icon={UserCheck}
-        colorClass="from-emerald-500/10 to-teal-500/10 border-emerald-500/20 text-emerald-400"
+        colorClass="bg-[var(--success)]/10 text-[var(--success)]"
+        trend="12%"
+        subtitle="from last month"
+        menu
       />
       <StatCard
         title="Departments"
         value={departmentsCount}
         icon={Layers}
-        colorClass="from-amber-500/10 to-orange-500/10 border-amber-500/20 text-amber-400"
+        colorClass="bg-[var(--warning)]/10 text-[var(--warning)]"
+        subtitle="Across the organization"
       />
       <StatCard
-        title="Admins"
+        title="Administrators"
         value={adminCount}
         icon={Shield}
-        colorClass="from-purple-500/10 to-pink-500/10 border-purple-500/20 text-purple-400"
+        colorClass="bg-[var(--indigo)]/10 text-[var(--indigo)]"
+        subtitle="System administrators"
       />
     </div>
   );
 };
 
 export default EmployeeStats;
+

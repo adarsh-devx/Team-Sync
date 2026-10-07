@@ -1,4 +1,4 @@
-import React from "react";
+﻿
 import { ChevronDown } from "lucide-react";
 
 const FormSelect = ({ label, name, value, onChange, options = [], required = false, placeholder }) => {
@@ -15,7 +15,7 @@ const FormSelect = ({ label, name, value, onChange, options = [], required = fal
           required={required}
           value={value}
           onChange={onChange}
-          className="appearance-none w-full pl-4 pr-10 py-2.5 text-sm rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-primary)] outline-none focus:border-purple-500 hover:bg-[var(--bg-hover)] transition-all cursor-pointer shadow-sm"
+          className="appearance-none w-full pl-4 pr-10 py-2.5 text-sm rounded-[var(--radius-sm)] bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-primary)] outline-none focus:border-[var(--accent)] hover:bg-[var(--bg-hover)] transition-all cursor-pointer shadow-sm"
         >
           <option value="" disabled hidden>
             {placeholder}
@@ -36,3 +36,4 @@ const FormSelect = ({ label, name, value, onChange, options = [], required = fal
 };
 
 export default FormSelect;
+

@@ -1,4 +1,4 @@
-import React from "react";
+﻿
 
 const RadioStatus = ({ label, name, value, onChange }) => {
   return (
@@ -20,8 +20,8 @@ const RadioStatus = ({ label, name, value, onChange }) => {
           />
           <span className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
             value === "active"
-              ? "border-purple-600 bg-purple-600"
-              : "border-[var(--border-color)] bg-[var(--bg-main)] group-hover:border-purple-500/50"
+              ? "border-[var(--accent)] bg-[var(--accent)]"
+              : "border-[var(--border-color)] bg-[var(--bg-main)] group-hover:border-[var(--accent)]"
           }`}>
             {value === "active" && (
               <span className="w-1.5 h-1.5 rounded-full bg-white" />
@@ -42,8 +42,8 @@ const RadioStatus = ({ label, name, value, onChange }) => {
           />
           <span className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
             value === "inactive"
-              ? "border-purple-600 bg-purple-600"
-              : "border-[var(--border-color)] bg-[var(--bg-main)] group-hover:border-purple-500/50"
+              ? "border-[var(--accent)] bg-[var(--accent)]"
+              : "border-[var(--border-color)] bg-[var(--bg-main)] group-hover:border-[var(--accent)]"
           }`}>
             {value === "inactive" && (
               <span className="w-1.5 h-1.5 rounded-full bg-white" />
@@ -57,3 +57,4 @@ const RadioStatus = ({ label, name, value, onChange }) => {
 };
 
 export default RadioStatus;
+
