@@ -1,78 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap");
 @import 'tailwindcss';
 
-/* =========================
-   DARK THEME (DEFAULT)
-========================= */
+/* ============================================================
+   TEAM-SYNC DESIGN TOKENS — "Quiet SaaS"
+   Fonts: Inter (UI/body) + Bricolage Grotesque (display only)
+   Accent: single cool blue. No purple, no gradients, no glass.
+   Hierarchy borders + spacing se aati hai, shadows se nahi.
+   Note: purane variable names (--bg-surface, --text-muted etc.)
+   jaan-boojh kar rakhe hain taaki purane pages na tootein.
+   ============================================================ */
 
+/* ---------- DARK THEME (default) ---------- */
 :root {
-    /* COLORS */
-    --primary: #181422;
-    --secondary: #1D1B20;
-    --tertiary: #C9A74D;
-  
-    --success: #22c55e;
-    --warning: #eab308;
-    --danger: #ef4444;
-  
+    /* ACCENT — ek hi cool blue, semantic colors alag */
+    --accent: #3b9ae4;
+    --accent-hover: #5cadec;
+    --accent-soft: rgba(59, 154, 228, 0.12);
+
+    --success: #3fb968;
+    --warning: #d9a53a;
+    --indigo: #7c7ff2;
+    --danger: #e5534b;
+
     /* BACKGROUNDS */
-    --bg-main: #141218;
-    --bg-surface: #0F0D13;
-    --bg-card: #1e293b;
-    --bg-hover: #2b3548;
-  
+    --bg-main: #131417;
+    --bg-surface: #1a1c20;
+    --bg-card: #1a1c20;
+    --bg-hover: #23262b;
+
     /* TEXT */
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-  
-    /* BORDER */
-    --border-color: #2d3748;
-  
-    /* SHADOW */
-    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.3);
-  
-    /* RADIUS */
-    --radius-md: 10px;
-  }
-  
-  /* =========================
-     LIGHT THEME
-  ========================= */
-  
-  .light {
-    /* COLORS */
-    --primary: #6063EE;
-    --secondary: #475569;
-    --tertiary: #c2410c;
-  
-    --success: #16a34a;
-    --warning: #ca8a04;
-    --danger: #dc2626;
-  
-    /* BACKGROUNDS */
-    --bg-main: #f8fafc;
+    --text-primary: #ececea;
+    --text-secondary: #b4b8bd;
+    --text-muted: #7d828a;
+
+    /* BORDER — hairline, shadow ki jagah borders ka kaam karengi */
+    --border-color: #2a2d33;
+
+    /* INK SIDEBAR — near-black rail */
+    --bg-ink: #1b1e1b;
+    --bg-ink-hover: #262a26;
+    --border-ink: #2e322d;
+    --text-ink: #f2f1ee;
+    --text-ink-muted: #8f948d;
+
+    /* SHADOW — sirf floating elements (modal, dropdown) ke liye */
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+
+    /* RADIUS SCALE — inhi teeno me se kuch use hoga, random nahi */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ---------- LIGHT THEME (flagship — Quiet SaaS) ---------- */
+.light {
+    --accent: #0b6fce;
+    --accent-hover: #0a5fb2;
+    --accent-soft: #e8f1fa;
+
+    --success: #188038;
+    --warning: #b06000;
+    --indigo: #5b5fd6;
+    --danger: #c53228;
+
+    --bg-main: #fafafa;
     --bg-surface: #ffffff;
-    --bg-card: #e2e8f0;
-    --bg-hover: #dbe4f0;
-  
-    /* TEXT */
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --text-muted: #64748b;
-  
-    /* BORDER */
-    --border-color: #cbd5e1;
-  
-    /* SHADOW */
-    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  /* =========================
-     GLOBAL STYLES
-  ========================= */
-  
-  body {
+    --bg-card: #ffffff;
+    --bg-hover: #f2f2f0;
+
+    --text-primary: #17181a;
+    --text-secondary: #52565e;
+    --text-muted: #8a8f98;
+
+    --border-color: #e5e5e2;
+
+    --bg-ink: #16181b;
+    --bg-ink-hover: #232629;
+    --border-ink: #2a2d31;
+    --text-ink: #f2f1ee;
+    --text-ink-muted: #8f948d;
+
+    --shadow-md: 0 1px 2px rgba(23, 24, 26, 0.05), 0 8px 24px rgba(23, 24, 26, 0.06);
+}
+
+/* ---------- GLOBAL ---------- */
+body {
     background: var(--bg-main);
     color: var(--text-primary);
-    transition: 0.3s ease;
-  }
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Display font — headings, logo, page titles */
+.font-display {
+    font-family: "Bricolage Grotesque", "Inter", sans-serif;
+}
+
+/* Section labels — chhote uppercase, yahi "designed" feel ki signature hai */
+.label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Numbers wali columns/tables me — digits align rehte hain */
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Focus ring — har interactive element ke liye consistent */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Skeleton placeholder — loading state me spinner ki jagah card-shaped blocks.
+   Tokens se colors aate hain, isliye light/dark dono me sahi dikhta hai. */
+.skeleton {
+    background: var(--bg-hover);
+    border-radius: var(--radius-sm);
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.45;
+    }
+}
+
+/* Motion pasand nahi to pulse band — accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+    }
+}

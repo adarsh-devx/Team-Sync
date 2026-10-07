@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router";
-import AsideNav from "../../features/dashboard/ui/components/AsideNav";
 import TopNav from "../../features/dashboard/ui/components/TopNav";
 
 const DashboardLayout = () => {
@@ -15,18 +14,14 @@ const DashboardLayout = () => {
     }
   }, [mode]);
 
-   return (
-    <div className="h-screen grid grid-cols-[1fr_7fr] overflow-hidden">
-      {/* Sidebar: scrollable but visual scrollbar is hidden */}
-      <div className="border-r border-gray-500 py-4 h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]">
-        <AsideNav />
-      </div>
-      
-      {/* Right panel: TopNav fixed at top */}
-      <div className="flex flex-col gap-5 px-6 py-4 h-full overflow-hidden">
-        <TopNav />
-        {/* Content Area: scrolls smoothly but scrollbar track is completely invisible */}
-        <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]">
+  return (
+    <div className="flex h-screen flex-col overflow-hidden bg-[var(--bg-main)]">
+      <TopNav />
+
+      {/* Content: full-width paper, centred max-width container.
+          Sidebar rail hata diya, isliye horizontal breathing room badh gayi. */}
+      <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none] [-ms-overflow-style:none]">
+        <div className="mx-auto w-full max-w-[1600px] px-6 py-6 lg:px-8">
           <Outlet />
         </div>
       </div>

@@ -7,8 +7,8 @@ import {
   Presentation,
   Settings,
   User,
+  UserCircle2,
 } from "lucide-react";
-import { Profiler } from "react";
 
 export let employeeNavigation = [
   {
@@ -34,7 +34,7 @@ export let employeeNavigation = [
   {
     path: "/home/profile",
     title: "Profile",
-    Icon: <Profiler />,
+    Icon: <UserCircle2 />,
   },
   {
     path: "/home/setting",
@@ -66,7 +66,7 @@ export let adminNavigation = [
   },
   {
     path: "/home/employee",
-    title: "Employee",
+    title: "Team",
     Icon: <User />,
   },
   {
