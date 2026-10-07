@@ -119,7 +119,7 @@ export const mockBuildEmployee = (email) => {
     _id: isAdmin ? "mock-admin-001" : "mock-employee-001",
     name: name || "Guest User",
     email: safeEmail,
-    bio: "Mock mode se login kiya gaya user.",
+    bio: "Authenticated workspace member.",
     department: isAdmin ? "common" : "engineering",
     role: isAdmin ? "admin" : "employee",
     joiningDate: new Date().toISOString().slice(0, 10),

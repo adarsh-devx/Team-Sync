@@ -1,14 +1,13 @@
 // pages/Login.jsx — Enterprise calm: ink brand panel + quiet form
 import { LogIn } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
-import { USE_MOCK_API } from "../../../../mock/mockConfig";
 
 const Login = () => {
   let { register, handleSubmit, errors, onLoginSubmit, navigate } = useAuth();
 
   return (
     <div className="min-h-screen grid lg:grid-cols-[44%_1fr] bg-[var(--bg-main)]">
-      {/* Left: ink brand panel — typographic, honest, no glow */}
+      {/* Left: ink brand panel */}
       <div className="hidden lg:flex flex-col justify-between bg-[var(--bg-ink)] p-12">
         <div className="flex items-center gap-2.5">
           <img src="/logo.webp" alt="team-sync" className="h-7 w-7 shrink-0 object-contain" />
@@ -22,8 +21,7 @@ const Login = () => {
             One workspace for your whole team.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-[var(--text-ink-muted)]">
-            Employees, tasks, attendance and documents — ek hi jagah, admin aur
-            employee dono ke liye.
+            Manage employees, tasks, attendance, and documents all in one unified workspace for admins and team members alike.
           </p>
         </div>
 
@@ -43,7 +41,7 @@ const Login = () => {
             Sign in
           </h1>
           <p className="mt-1.5 text-sm text-[var(--text-secondary)]">
-            Apne workspace me wapas aao.
+            Welcome back. Please enter your credentials to continue.
           </p>
 
           <form onSubmit={handleSubmit(onLoginSubmit)} className="mt-8 space-y-5">
@@ -105,22 +103,14 @@ const Login = () => {
           </form>
 
           <p className="mt-8 text-center text-[13px] text-[var(--text-secondary)]">
-            Account nahi hai?{" "}
+            Don't have an account?{" "}
             <button
               onClick={() => navigate("/register")}
               className="font-medium text-[var(--accent)] hover:underline cursor-pointer"
             >
-              Register karo
+              Create account
             </button>
           </p>
-
-          {USE_MOCK_API && (
-            <p className="mt-6 rounded-[var(--radius-sm)] border border-[var(--border-color)] px-4 py-3 text-center text-[11px] leading-relaxed text-[var(--text-muted)]">
-              Mock mode (backend offline): koi bhi email/password chalega.
-              Email me <b className="text-[var(--accent)]">admin</b> likho to Admin panel,
-              warna Employee panel khulega.
-            </p>
-          )}
 
           <p className="mt-12 text-center text-[11px] text-[var(--text-muted)]">
             © 2026 team-sync

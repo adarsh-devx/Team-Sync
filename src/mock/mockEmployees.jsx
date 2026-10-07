@@ -1,12 +1,12 @@
-// 🧪 Seed employees - admin panel ka Employee page inhi fake records se bhar jata hai.
-// Har object ka shape backend ke response jaisa hi hai:
+// 🧪 Seed employees - populated into mock localStorage for local development / testing.
+// Matches backend payload schema:
 // { _id, name, email, bio, department, role, joiningDate, status, avatar, createdAt, updatedAt }
 export const seedEmployees = [
   {
     _id: "mock-emp-001",
     name: "Aarav Sharma",
     email: "aarav.sharma@team-sync.space",
-    bio: "Frontend focused engineer, React aur design systems me kaam karta hai.",
+    bio: "Frontend-focused engineer specializing in React and modern design systems.",
     department: "engineering",
     role: "admin",
     joiningDate: "2023-04-12",
@@ -19,7 +19,7 @@ export const seedEmployees = [
     _id: "mock-emp-002",
     name: "Priya Verma",
     email: "priya.verma@team-sync.space",
-    bio: "Product designer, UI patterns aur accessibility pe kaam karti hai.",
+    bio: "Product designer focused on intuitive UI patterns and accessibility.",
     department: "design",
     role: "employee",
     joiningDate: "2023-07-01",
@@ -32,7 +32,7 @@ export const seedEmployees = [
     _id: "mock-emp-003",
     name: "Rohan Mehta",
     email: "rohan.mehta@team-sync.space",
-    bio: "Backend engineer, APIs aur database optimisation dekhta hai.",
+    bio: "Backend engineer specializing in APIs, microservices, and database optimization.",
     department: "engineering",
     role: "employee",
     joiningDate: "2022-11-18",
@@ -45,7 +45,7 @@ export const seedEmployees = [
     _id: "mock-emp-004",
     name: "Sneha Kapoor",
     email: "sneha.kapoor@team-sync.space",
-    bio: "Growth aur content marketing sambhalti hai.",
+    bio: "Growth marketer specializing in content strategy, campaigns, and user acquisition.",
     department: "marketing",
     role: "employee",
     joiningDate: "2024-01-08",
@@ -58,7 +58,7 @@ export const seedEmployees = [
     _id: "mock-emp-005",
     name: "Imran Qureshi",
     email: "imran.qureshi@team-sync.space",
-    bio: "QA engineer, automation aur regression suites handle karta hai.",
+    bio: "QA automation engineer maintaining test suites and CI quality pipelines.",
     department: "engineering",
     role: "employee",
     joiningDate: "2023-02-20",
@@ -71,7 +71,7 @@ export const seedEmployees = [
     _id: "mock-emp-006",
     name: "Neha Iyer",
     email: "neha.iyer@team-sync.space",
-    bio: "HR partner, onboarding aur employee engagement dekhti hai.",
+    bio: "People operations partner managing onboarding, culture, and employee experience.",
     department: "common",
     role: "admin",
     joiningDate: "2022-06-05",
@@ -84,7 +84,7 @@ export const seedEmployees = [
     _id: "mock-emp-007",
     name: "Kabir Nair",
     email: "kabir.nair@team-sync.space",
-    bio: "Motion designer, product walkthroughs aur video assets banata hai.",
+    bio: "Motion and brand designer crafting walkthroughs and rich media assets.",
     department: "design",
     role: "employee",
     joiningDate: "2024-03-11",

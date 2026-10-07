@@ -32,7 +32,7 @@ export let currentLoggedEmployee = createAsyncThunk(
         return savedEmployee;
       }
 
-      return thunkApi.rejectWithValue("mock: koi logged in user nahi hai");
+      return thunkApi.rejectWithValue("No authenticated user found");
     }
 
     try {

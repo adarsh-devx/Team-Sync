@@ -47,8 +47,7 @@ const Register = () => {
             One workspace for your whole team.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-[var(--text-ink-muted)]">
-            Employees, tasks, attendance and documents — ek hi jagah, admin aur
-            employee dono ke liye.
+            Manage employees, tasks, attendance, and documents all in one unified workspace for admins and team members alike.
           </p>
         </div>
       </div>
@@ -64,7 +63,7 @@ const Register = () => {
             Create your account
           </h1>
           <p className="mt-1.5 text-sm text-[var(--text-secondary)]">
-            Naya employee workspace me shamil karo.
+            Get started with your team workspace.
           </p>
 
           <form
@@ -162,11 +161,11 @@ const Register = () => {
                 htmlFor="agreeTerms"
                 className="text-[13px] leading-snug text-[var(--text-secondary)] select-none cursor-pointer"
               >
-                Main{" "}
+                I agree to the{" "}
                 <span className="font-medium text-[var(--text-primary)] underline underline-offset-2">
                   Terms of Service
                 </span>{" "}
-                accept karta/karti hoon.
+                and Privacy Policy.
               </label>
             </div>
             {errors.agreeTerms && (
